@@ -59,17 +59,17 @@ pub mod with_cgl;
 #[cfg(target_os="macos")]
 pub use self::with_cgl::{NativeGLContext, NativeGLContextHandle};
 
+/*
 #[cfg(target_os="windows")]
 pub mod with_wgl;
 #[cfg(target_os="windows")]
 pub use self::with_wgl::{NativeGLContext, NativeGLContextHandle};
+*/
 
 #[cfg(target_os="ios")]
 pub mod with_eagl;
 #[cfg(target_os="ios")]
 pub use self::with_eagl::{NativeGLContext, NativeGLContextHandle};
 
-#[cfg(not(any(unix, target_os="windows")))]
 pub mod not_implemented;
-#[cfg(not(any(unix, target_os="windows")))]
 pub use self::not_implemented::{NativeGLContext, NativeGLContextHandle};

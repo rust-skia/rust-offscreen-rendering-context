@@ -46,7 +46,7 @@ fn main() {
                       ])
             .write_bindings(gl_generator::StructGenerator, &mut file).unwrap();
 
-        println!("cargo:rustc-link-lib=opengl32");
+        // println!("cargo:rustc-link-lib=opengl32");
     } else if cfg!(feature = "x11") && !target.contains("android") && !target.contains("apple-ios") {
         let mut file = File::create(&dest.join("glx_bindings.rs")).unwrap();
         Registry::new(Api::Glx, (1, 4), Profile::Core, Fallbacks::All, [])
